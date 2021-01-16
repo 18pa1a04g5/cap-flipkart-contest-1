@@ -1,0 +1,47 @@
+#rearrange digits  in python.
+class Solution:
+    def smallestnum (self,N):
+        # code here 
+        s=sorted([int(x) for x in str(N)])
+        a=""
+        z=""
+        for i in s:
+            if i==0:
+                z+=str(i)
+            else:
+                a+=str(i)
+        return int(a[0]+z+a[1:])
+        
+        
+#mics and jury in  java. 
+ class Solution{
+    static int micsandjury(int N,int M,int[] teams){
+        double b = 1e9;
+        int a = 1;
+        int ans=0;
+        while(a<=b)
+        {
+            int res = (int)(a+b)/2;
+            int groups =0;
+            for(int i=0;i<M;i++)
+            {
+                if(teams[i]%res!=0)
+                groups+=teams[i]/res+1;
+                else
+                groups+=teams[i]/res;
+            }
+            if(groups>N)
+            {
+                a=res+1;
+            }
+            else
+            {
+               	ans =res;
+                b=res-1;
+            }
+        }
+        return ans;
+    }
+    }
+
+
